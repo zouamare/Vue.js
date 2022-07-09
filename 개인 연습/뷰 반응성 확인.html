@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>뷰 반응성 확인</title>
+  </head>
+  <body>
+      <div id="v">
+        <button v-on:click="updateC">당근 {{messagec}}</button>
+        <button v-on:click="updateO">양파 {{messageo}}</button>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+      var cdata = 0;
+      var odata = 0;
+      new Vue({
+        el: '#v',
+        data: {
+          messagec: cdata,
+          messageo: odata,
+        },
+        methods: {
+          updateC: function() {
+            cdata = cdata + 1;
+            console.log("당근 변경 "+cdata);
+            this.messagec = cdata;
+          },
+          updateO: function(){
+            odata = odata + 1;
+            console.log("양파 변경 "+odata);
+            this.messageo = odata;
+          }
+        },
+      });
+
+    </script>
+  </body>
+</html>
